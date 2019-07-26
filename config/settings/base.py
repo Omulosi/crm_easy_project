@@ -19,7 +19,9 @@ APPS_DIR = ROOT_DIR.path("crm_easy")
 
 env = environ.Env()
 
-env.read_env(str(ROOT_DIR.path('.env')))
+READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
+if READ_DOT_ENV_FILE:
+    env.read_env(str(ROOT_DIR.path(".env")))
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -38,7 +40,7 @@ USE_TZ = True
 # --------------------------------------------------------------
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 DATABASES = {
-    "default": env.db("DATABASE_URL")
+             "default": env.db("DATABASE_URL", default="postgres:///crm_easy")
 }
 
 DATABASES["default"]["ATOMIC_REQUESTS"] = True

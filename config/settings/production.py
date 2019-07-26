@@ -1,10 +1,12 @@
 from .base import *
-from .base import DATABASES
-
-import dj_database_url
+from .base import env
 
 DEBUG = False
 
-DATABASES['default'] = dj_database_url.config()
+DATABASES['default'] = env.db('DATABASE_URL')
+DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 ALLOWED_HOSTS = ['*']
+
+SECRET_KEY = env('SECRET_KEY')
+
