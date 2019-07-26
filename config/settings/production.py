@@ -10,3 +10,4 @@ ALLOWED_HOSTS = ['*']
 
 SECRET_KEY = env('SECRET_KEY')
 
+django_heroku.settings(locals())
