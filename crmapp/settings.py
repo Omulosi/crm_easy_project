@@ -33,14 +33,16 @@ ENV_ROLE = get_env_variable('ENV_ROLE')
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'v3+-m!0m3su@n8kgb@60=a@w0^1ek#e@1%-k7t91=n%5%7(q2$'
+SECRET_KEY = get_env_variable('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
+DB_PASS = False
 if ENV_ROLE == 'development':
     DEBUG = True
     TEMPLATE_DEBUG = DEBUG
+    DB_PASS = get_env_variable('DB_PASS')
 
 ALLOWED_HOSTS = []
 
@@ -95,7 +97,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'crm_easy_db',
         'USER': 'jp',
-        'PASSWORD': 'cavier',
+        'PASSWORD': DB_PASS,
         'HOST': 'localhost',
         'PORT': '5432',
     }
