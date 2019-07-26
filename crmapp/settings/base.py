@@ -16,7 +16,6 @@ from django.core.exceptions import ImproperlyConfigured
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 def get_env_variable(var_name):
     """ Get the environment variable or return exception """
     try:
@@ -26,23 +25,12 @@ def get_env_variable(var_name):
         raise ImproperlyConfigured(error_msg)
 
 
-# Get ENV variable key
-ENV_ROLE = get_env_variable('ENV_ROLE')
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = get_env_variable('SECRET_KEY')
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-TEMPLATE_DEBUG = DEBUG
-DB_PASS = False
-if ENV_ROLE == 'development':
-    DEBUG = True
-    TEMPLATE_DEBUG = DEBUG
-    DB_PASS = get_env_variable('DB_PASS')
+
+DB_PASS = get_env_variable('DB_PASS')
 
 ALLOWED_HOSTS = []
 
@@ -141,3 +129,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'staticfiles'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static')
+)
