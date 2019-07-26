@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import environ
-import django_heroku
 
 ROOT_DIR = (
     environ.Path(__file__) - 3
