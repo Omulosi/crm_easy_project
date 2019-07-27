@@ -20,10 +20,11 @@ from crm_easy.marketing.views import HomePage
 
 urlpatterns = [
     # Marketing pages
-    url(r'^$', HomePage.as_view(), name="home")
+    url(r'^$', HomePage.as_view(), name="home"),
 
     # Subscriber related URLs
-
+    url(r'^signup/$',
+       'crm_easy.subscribers.views.subscriber_view', name='sub_new')
     # Admin URL
 
     # Login/Logout URLs
