@@ -23,8 +23,8 @@ urlpatterns = [
     url(r'^$', HomePage.as_view(), name="home"),
 
     # Subscriber related URLs
-    url(r'^signup/$',
-       'crm_easy.subscribers.views.subscriber_view', name='sub_new')
+    url(r'',
+        include('crm_easy.subscribers.urls')),
     # Admin URL
 
     # Login/Logout URLs
