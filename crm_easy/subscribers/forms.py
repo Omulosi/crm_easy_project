@@ -25,6 +25,10 @@ class SubscriberForm(AddressMixin, UserCreationForm):
         required=True, widget=forms.TextInput(attrs={'class': 'form-control'})
     )
 
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+
     email = forms.EmailField(
         required=True, widget=forms.TextInput(attrs={'class': 'form-control'})
     )
