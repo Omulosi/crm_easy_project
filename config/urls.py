@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'',
         include('crm_easy.subscribers.urls')),
     # Admin URL
+    url(r'^admin/', include(admin.site.urls)),
 
     # Login/Logout URLs
 
