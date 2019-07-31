@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.auth.views import LoginView, LogoutView
 from django.conf import settings
 from crm_easy.marketing.views import HomePage
 
@@ -29,8 +30,9 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 
     # Login/Logout URLs
-    url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
-    url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/login/'}),
+    url(r'^login/$', LoginView.as_view(template_name='login.html'),
+        name='login'),
+    url(r'^logout/$', LogoutView.as_view(next_page='/login/'), name='logout'),
 
     # Account related URLs
 
