@@ -128,3 +128,5 @@ AUTH_PASSWORD_VALIDATORS = [
 STATIC_ROOT = str(ROOT_DIR('staticfiles'))
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [str(APPS_DIR.path("static")), ]
+
+LOGIN_REDIRECT_URL = '/account/list/'
