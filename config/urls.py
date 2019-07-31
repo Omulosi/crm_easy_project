@@ -32,7 +32,7 @@ urlpatterns = [
     # Login/Logout URLs
     url(r'^login/$', LoginView.as_view(template_name='login.html'),
         name='login'),
-    url(r'^logout/$', LogoutView.as_view(next_page='/login/'), name='logout'),
+    url(r'^logout/$', LogoutView.as_view(), name='logout'),
 
     # Account related URLs
 

@@ -87,7 +87,7 @@ MIDDLEWARE = [
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [str(APPS_DIR.path("templates")),],
+        'DIRS': [str(APPS_DIR.path("templates")), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,4 +129,4 @@ STATIC_ROOT = str(ROOT_DIR('staticfiles'))
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [str(APPS_DIR.path("static")), ]
 
-LOGIN_REDIRECT_URL = '/account/list/'
+LOGIN_REDIRECT_URL = '/'

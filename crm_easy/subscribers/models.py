@@ -4,6 +4,7 @@ from django.conf import settings
 
 import stripe
 
+
 class Subscriber(models.Model):
     user_rec = models.ForeignKey(User)
     address_one = models.CharField(max_length=100)

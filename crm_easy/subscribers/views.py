@@ -11,6 +11,7 @@ from .models import Subscriber
 
 import stripe
 
+
 def subscriber_new(request, template='subscribers/subscriber_new.html'):
     if request.method == 'POST':
         form = SubscriberForm(request.POST)
@@ -34,11 +35,10 @@ def subscriber_new(request, template='subscribers/subscriber_new.html'):
             sub = Subscriber(address_one=address_one, address_two=address_two,
                              city=city, state=state, user_rec=user)
             sub.save()
-            # TODO
             # Process payment (stripe)
             fee = settings.SUBSCRIPTION_PRICE
             try:
-                stripe_customer = sub.charge(request, email, fee)
+                sub.charge(request, email, fee)
             except stripe.StripeError as e:
                 form._errors[NON_FIELD_ERRORS] = form.error_class([e.args[0]])
                 return render(request, template,
@@ -61,4 +61,3 @@ def subscriber_new(request, template='subscribers/subscriber_new.html'):
 
     return render(request, template, {'form': form,
                                       'STRIPE_PUBLISHABLE_KEY': settings.STRIPE_PUBLISHABLE_KEY})
-
