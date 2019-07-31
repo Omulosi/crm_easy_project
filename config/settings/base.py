@@ -69,6 +69,7 @@ THIRD_PARTY_APPS = []
 LOCAL_APPS = [
     'crm_easy.marketing',
     'crm_easy.subscribers',
+    'crm_easy.accounts',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
