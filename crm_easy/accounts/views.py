@@ -13,7 +13,14 @@ class AccountList(ListView):
     context_object_name = 'accounts'
 
     def get_queryset(self):
-        account_list = Account.objects.filter(owner=self.request.user)
+        account_search_name = self.request.GET.get('account')
+        if account_search_name:
+            account_list = Account.objects.filter(
+                name__icontains=account_search_name,
+                owner=self.request.user
+            )
+        else:
+            account_list = Account.objects.filter(owner=self.request.user)
         return account_list
 
     @method_decorator(login_required)
