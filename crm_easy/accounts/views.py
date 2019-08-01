@@ -8,6 +8,7 @@ from .models import Account
 
 class AccountList(ListView):
     model = Account
+    paginate_by = 2
     template_name = 'accounts/account_list.html'
     context_object_name = 'accounts'
 
@@ -15,6 +16,6 @@ class AccountList(ListView):
         account_list = Account.objects.filter(owner=self.request.user)
         return account_list
 
-    @method_decorator
+    @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(AccountList, self).dispatch(*args, **kwargs)

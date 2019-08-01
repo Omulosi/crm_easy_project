@@ -52,7 +52,7 @@
 	                    <ul class="nav navbar-nav navbar-right">
 	                        {% if user.is_authenticated %}
                           <li><a href="{% url 'logout' %}">Logout</a></li>
-	                            <li><a href="{% url 'account_list' %}"
+	                            <li><a href="{% url 'accounts:account_list' %}"
 	                                   class="p-r-none">Accounts</a></li>
 	                        {% else %}
                           <li><a href="{% url 'login' %}">Login</a></li>

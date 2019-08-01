@@ -18,6 +18,7 @@ class Account(models.Model):
 
     class Meta:
         verbose_name_plural = 'accounts'
+        ordering = ['created_on']
 
     def __str__(self):
         return "{}".format(self.name)
