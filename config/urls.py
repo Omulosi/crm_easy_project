@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^logout/$', LogoutView.as_view(), name='logout'),
 
     # Account related URLs
+    url(r'', include('crm_easy.accounts.urls')),
 
     # Contact related URLs
 
