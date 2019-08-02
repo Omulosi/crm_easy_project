@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponseForbidden
 from django.core.urlresolvers import reverse
-from diango.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404
 from django.utils.decorators import method_decorator
 from django.http import Http404
 from django.views.generic.edit import DeleteView
@@ -61,7 +61,7 @@ def contact_cru(request, uuid=None, account=None):
                               {'account': account, 'contact': contact})
             else:
                 reverse_url = reverse(
-                    'crmapp.accounts.views.account_detail',
+                    'accounts:account_detail',
                     args=(account.uuid,)
                 )
                 return HttpResponseRedirect(reverse_url)
