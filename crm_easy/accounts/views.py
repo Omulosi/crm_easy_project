@@ -59,9 +59,10 @@ def account_cru(request):
             return HttpResponseRedirect(redirect_url)
     else: 
         form = AccountForm()
-        context = {
-            'form': form,
-        }
-        template = 'accounts/account_cru.html'
-        
-        return render(request, template, context)
+
+    context = {
+        'form': form,
+    }
+    template = 'accounts/account_cru.html'
+ 
+    return render(request, template, context)
