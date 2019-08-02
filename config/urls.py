@@ -38,6 +38,7 @@ urlpatterns = [
     url(r'', include('crm_easy.accounts.urls')),
 
     # Contact related URLs
+    url(r'', include('crm_easy.contacts.urls')),
 
     # Communication related URLs
 ]
