@@ -25,7 +25,7 @@ class Account(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return 'accounts_detail', [self.uuid]
+        return 'accounts:account_detail', [self.uuid]
 
     @models.permalink
     def get_delete_url(self):
