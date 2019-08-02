@@ -30,16 +30,14 @@ def contact_cru(request, uuid=None, account=None):
         contact = Contact(owner=request.user)
     
     if request.POST:
-        form = ContactForm(request.POSTi, instance=contact)
+        form = ContactForm(request.POST, instance=contact)
         if form.is_valid():
             # make sure the user owns the account
             account = form.cleaned_data['account']
             if account.owner != request.user:
                 return HttpResponseForbidden()
             # save the data
-            contact = form.save(commit=False)
-            contact.owner = request.user
-            contact.save()
+            form.save()
             # return the user to the account detail view
             reverse_url = reverse(
                 'accounts:account_detail',
