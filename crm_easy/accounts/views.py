@@ -5,6 +5,7 @@ from django.utils.decorators import method_decorator
 from django.http import HttpResponseForbidden, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404
+from ..contacts.models import Contact
 
 from .models import Account
 from .forms import AccountForm
@@ -37,8 +38,12 @@ def account_detail(request, uuid):
     account = Account.objects.get(uuid=uuid)
     if account.owner != request.user:
         return HttpResponseForbidden()
+
+    contacts = Contact.objects.filter(account=account)
+
     context = {
         'account': account,
+        'contacts': contacts,
     }
 
     return render(request, 'accounts/account_detail.html', context)
