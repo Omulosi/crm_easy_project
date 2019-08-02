@@ -13,19 +13,19 @@ class ContactForm(forms.ModelForm):
 
         widgets = {
             'first_name': forms.TextInput(
-                attrs={'placeholder':'First Name', 'class': 'form-control'}
+                attrs={'placeholder': 'First Name', 'class': 'form-control'}
             ),
             'last_name': forms.TextInput(
-                attrs={'placeholder':'Last Name', 'class': 'form-control'}
+                attrs={'placeholder': 'Last Name', 'class': 'form-control'}
             ),
             'role': forms.TextInput(
-                attrs={'placeholder':'Role', 'class': 'form-control'}
+                attrs={'placeholder': 'Role', 'class': 'form-control'}
             ),
             'phone': forms.TextInput(
-                attrs={'placeholder':'Phone', 'class': 'form-control'}
+                attrs={'placeholder': 'Phone', 'class': 'form-control'}
             ),
             'email': forms.TextInput(
-                attrs={'placeholder':'Email', 'class': 'form-control'}
+                attrs={'placeholder': 'Email', 'class': 'form-control'}
             ),
         }
 
