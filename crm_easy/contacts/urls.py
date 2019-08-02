@@ -4,6 +4,7 @@ from . import  views
 
 app_name = 'contacts'
 urlpatterns = [
+    url(r'^contact/new/$', views.contact_cru, name='contact_new'),
     url(r'^contact/(?P<uuid>[\w-]+)/$', views.contact_detail,
         name='contact_detail'),
 ]
