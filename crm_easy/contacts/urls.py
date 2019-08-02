@@ -9,4 +9,7 @@ urlpatterns = [
         name='contact_update'),
     url(r'^contact/(?P<uuid>[\w-]+)/$', views.contact_detail,
         name='contact_detail'),
+
+    url(r'^contact/(?P<pk>[\w-]+)/delete/$',
+        views.ContactDelete.as_view(), name='contact_delete'),
 ]
