@@ -30,3 +30,7 @@ class Account(models.Model):
     @models.permalink
     def get_delete_url(self):
         return 'accounts:account_delete', [self.uuid]
+
+    @models.permalink
+    def get_update_url(self):
+        return 'accounts:account_update', [self.uuid]

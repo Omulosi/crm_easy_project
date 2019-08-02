@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.http import HttpResponseForbidden, HttpResponseRedirect
 from django.core.urlresolvers import reverse
-from django.shortcuts import import get_object_or_404
 
 from .models import Account
 from .forms import AccountForm
@@ -70,6 +69,10 @@ def account_cru(request, uuid=None):
         'form': form,
         'account': account
     }
-    template = 'accounts/account_cru.html'
+
+    if request.is_ajax():
+        template = 'accounts/account_item_form.html'
+    else:
+        template = 'accounts/account_cru.html'
  
     return render(request, template, context)
