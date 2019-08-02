@@ -29,4 +29,4 @@ class Account(models.Model):
 
     @models.permalink
     def get_delete_url(self):
-        return 'account_delete', [self.uuid]
+        return 'accounts:account_delete', [self.uuid]
